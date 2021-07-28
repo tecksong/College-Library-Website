@@ -64,9 +64,16 @@ window.onload = function () {
   css.type = "text/css";
   css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
   document.body.appendChild(css);
+
+  document.getElementById("loading").style.display = "none";
+  document.getElementById("body").style.display = "block";
+
+  // Add submit event listener to libraryForm
+  let libraryForm = document.getElementById("libraryForm");
+  libraryForm.addEventListener("submit", libraryFormSubmit);
 };
 //Load all books from LocalStorage, put outside because the window.onload function is broken
-LoadBooks();
+loadBooks();
 
 // Display Constructor
 function Display() {}
@@ -116,9 +123,9 @@ Display.prototype.show = function (type, displayMessage) {
   }, 2000);
 };
 
-// Add submit event listener to libraryForm
-let libraryForm = document.getElementById("libraryForm");
-libraryForm.addEventListener("submit", libraryFormSubmit);
+// // Add submit event listener to libraryForm
+// let libraryForm = document.getElementById("libraryForm");
+// libraryForm.addEventListener("submit", libraryFormSubmit);
 
 //Submit book
 function libraryFormSubmit(e) {
@@ -161,17 +168,19 @@ function addBooktoLocalStorage(book) {
   booksAddition.then((allbooks) => {
     console.log(JSON.stringify(window.localStorage.getItem("books")));
   });
+
+  return 1;
 }
 
 //Load Books Table onLoad
-function LoadBooks() {
+function loadBooks() {
   let allbooks = JSON.parse(window.localStorage.getItem("books"));
   tableBody = document.getElementById("tableBody");
   let countBooks = 0;
   let uiString;
 
   if (allbooks) {
-    allbooks.map((book, allbooks) => {
+    allbooks.map((book, key) => {
       countBooks++;
       uiString += `<tr id="${countBooks}">
     <td>${book.name}</td>
@@ -186,7 +195,9 @@ function LoadBooks() {
     tableBody.innerHTML += uiString;
   } else {
   }
+  return 1;
 }
+module.exports = { addBooktoLocalStorage, loadBooks };
 
 //edit function
 function editfunction(pbookname, pauthorname, ptype, pbookid) {
@@ -201,12 +212,11 @@ function deletefunction(pbookid) {
   document.getElementById(pbookid).style.display = "none";
 }
 
-window.onload = function () {
-  document.getElementById("loading").style.display = "none";
-  document.getElementById("body").style.display = "block";
-};
-// Todos"
-// 1.
+// window.onload = function () {
+//   document.getElementById("loading").style.display = "none";
+//   document.getElementById("body").style.display = "block";
 
-// 2. Give another column as an option to delete the book
-// 3. Add a scroll bar to the view.
+// };
+// Todos"
+// 1. Give another column as an option to delete the book
+// 2. Add a scroll bar to the view.
