@@ -169,9 +169,11 @@ function LoadBooks() {
   tableBody = document.getElementById("tableBody");
   let countBooks = 0;
   let uiString;
-  allbooks.map((book, allbooks) => {
-    countBooks++;
-    uiString += `<tr id="${countBooks}">
+
+  if (allbooks) {
+    allbooks.map((book, allbooks) => {
+      countBooks++;
+      uiString += `<tr id="${countBooks}">
     <td>${book.name}</td>
     <td>${book.author}</td>
     <td>${book.type}</td>
@@ -180,8 +182,10 @@ function LoadBooks() {
     <td><button class="btn btn-danger" id="edit" onclick="deletefunction('${countBooks}')">Delete</button>
     </td>
 </tr>`;
-  });
-  tableBody.innerHTML += uiString;
+    });
+    tableBody.innerHTML += uiString;
+  } else {
+  }
 }
 
 //edit function
