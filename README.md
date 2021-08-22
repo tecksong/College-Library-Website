@@ -1,6 +1,6 @@
 <h1 align="center">College Library Website</h1>
 
-<h2>Test the website <a href="https://everen-john.github.io/College-Library-Website/">here!</a></h2>
+<h2>Documentation <a href="https://everen-john.github.io/College-Library-Website/">here!</a></h2>
 
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
