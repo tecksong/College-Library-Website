@@ -27,7 +27,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm i
-    - run: npm run test
+    - run: npm run test --coverage
     - name: JSDoc Action
   # You may pin to the exact commit or the version.
   # uses: andstor/jsdoc-action@2fb2b536605bdebace2b92abb0601155d5ddc688
@@ -44,7 +44,7 @@ jobs:
         # The path to a JSDoc configuration file
         config_file: # optional
         # The JSDoc template to install
-        template: # optional
+        template: "@pixi/jsdoc-template"
         # This input variable is deprecated in favour of "template"
         template_name: # optional
         # The relative location of the template files within the template package
@@ -85,3 +85,11 @@ jobs:
         dry_run: # optional, default is false
         # Enable verbose output
         verbose: # optional, default is false
+        
+    - name: SonarQube Quality Gate Check
+      # You may pin to the exact commit or the version.
+      # uses: SonarSource/sonarqube-quality-gate-action@15767f0e4eb489cfdd989dc717fa78c038d0de8a
+      uses: SonarSource/sonarqube-quality-gate-action@v1.0.0
+      with:
+        # Location of the scanner metadata report file
+        scanMetadataReportFile: # optional, default is .scannerwork/report-task.txt
