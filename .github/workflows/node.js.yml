@@ -38,7 +38,7 @@ jobs:
         # Source directory to build documentation from
         source_dir: "./assets/js"
         # Output folder for the generated documentation
-        output_dir: "./out"
+        output_dir: "./docs"
         # Recurse into subdirectories when scanning for source files
         recurse: # optional
         # The path to a JSDoc configuration file
@@ -51,3 +51,35 @@ jobs:
         template_dir: # optional
         # The path to a Markdown file to be used as a the front page
         front_page: # optional
+
+    - name: GitHub Pages
+      # You may pin to the exact commit or the version.
+      # uses: crazy-max/ghaction-github-pages@db4476a01402e1a7ce05f41832040eef16d14925
+      uses: crazy-max/ghaction-github-pages@v2.5.0
+      with:
+        # Git domain (default github.com)
+        domain: # optional, default is github.com
+        # GitHub repository where assets will be deployed (default $GITHUB_REPOSITORY)
+        repo: # optional
+        # Git branch where assets will be deployed
+        target_branch: main
+        # Create incremental commit instead of doing push force
+        keep_history: # optional, default is false
+        # Allow an empty commit to be created
+        allow_empty_commit: # optional, default is true
+        # Build directory to deploy
+        build_dir: "./docs"
+        # The committer name and email address
+        committer: # optional
+        # The author name and email address
+        author: # optional
+        # Commit message
+        commit_message: # optional
+        # Write the given domain name to the CNAME file
+        fqdn: # optional
+        # Allow Jekyll to build your site
+        jekyll: # optional, default is true
+        # If enabled, nothing will be pushed
+        dry_run: # optional, default is false
+        # Enable verbose output
+        verbose: # optional, default is false
