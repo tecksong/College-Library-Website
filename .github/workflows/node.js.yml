@@ -52,11 +52,11 @@ jobs:
         # The path to a Markdown file to be used as a the front page
         front_page: # optional
         
-        - name: GitHub Pages
+    - name: GitHub Pages
         # You may pin to the exact commit or the version.
         # uses: crazy-max/ghaction-github-pages@db4476a01402e1a7ce05f41832040eef16d14925
-        - uses: crazy-max/ghaction-github-pages@v2.5.0
-          with:
+    - uses: crazy-max/ghaction-github-pages@v2.5.0
+      with:
             # Git domain (default github.com)
             domain: # optional, default is github.com
             # GitHub repository where assets will be deployed (default $GITHUB_REPOSITORY)
