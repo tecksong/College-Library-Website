@@ -172,7 +172,11 @@ function addBooktoLocalStorage(book) {
   return 1;
 }
 
-//Load Books Table onLoad
+/**
+ * Loads all the books from local storage into the page.
+ * Returns 1 as confirmation of completed process
+ * @returns {1}
+ */
 function loadBooks() {
   let allbooks = JSON.parse(window.localStorage.getItem("books"));
   tableBody = document.getElementById("tableBody");
