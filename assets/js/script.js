@@ -123,11 +123,10 @@ Display.prototype.show = function (type, displayMessage) {
   }, 2000);
 };
 
-// // Add submit event listener to libraryForm
-// let libraryForm = document.getElementById("libraryForm");
-// libraryForm.addEventListener("submit", libraryFormSubmit);
-
-//Submit book
+/**
+ * submit library form into localStorage, and also perform validation.
+ * @param {object} e
+ */
 function libraryFormSubmit(e) {
   console.log("YOu have submitted library form");
   let name = document.getElementById("bookName").value;
