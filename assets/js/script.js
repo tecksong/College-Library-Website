@@ -152,7 +152,11 @@ function libraryFormSubmit(e) {
   e.preventDefault();
 }
 
-//Store all the data to the localStorage
+/**
+ * Adds books to the local storage.
+ * @param {object} book
+ * @returns {1}
+ */
 function addBooktoLocalStorage(book) {
   let addedBook = book;
   let allbooks;
