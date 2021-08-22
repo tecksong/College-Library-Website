@@ -154,7 +154,7 @@ function libraryFormSubmit(e) {
 /**
  * Adds books to the local storage.
  * @param {object} book
- * @returns {1}
+ * @returns {1} confirms the process is completed.
  */
 function addBooktoLocalStorage(book) {
   let addedBook = book;
