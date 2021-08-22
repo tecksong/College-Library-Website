@@ -1,6 +1,5 @@
 <h1 align="center">College Library Website</h1>
 
-
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 [![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
@@ -30,12 +29,12 @@ Happy Submissions :slightly_smiling_face:
 
 ## Contribution Guidelines🏗
 
-Are we missing any of your favorite features, which you think you can add to it❓ We invite you to contribute to this project and make it better. 
-To start contributing, follow the below guidelines: 
+Are we missing any of your favorite features, which you think you can add to it❓ We invite you to contribute to this project and make it better.
+To start contributing, follow the below guidelines:
 
-**1.**  Fork [this](https://github.com/urvashi-code1255/College-Library-Website) repository.
+**1.** Fork [this](https://github.com/urvashi-code1255/College-Library-Website) repository.
 
-**2.**  Clone your forked copy of the project.
+**2.** Clone your forked copy of the project.
 
 ```
 git clone https://github.com/your_user_name/College-Library-Website.git
@@ -50,7 +49,7 @@ cd College-Library-Website
 **4.** Add a reference(remote) to the original repository to get all the changes from the remote.
 
 ```
-git remote add upstream https://github.com/urvashi-code1255/College-Library-Website.git 
+git remote add upstream https://github.com/urvashi-code1255/College-Library-Website.git
 ```
 
 **5.** Check the remotes for this repository.
@@ -76,7 +75,7 @@ git checkout -b <your_branch_name>
 **9.** Track your changes:heavy_check_mark: .
 
 ```
-git add . 
+git add .
 ```
 
 **10.** Commit your changes .
@@ -97,7 +96,6 @@ git push -u origin <your_branch_name>
 
 **14.** Click on `Create Pull Request`.
 
-
 **15** Bingo :exclamation: You have made a PR to the College-Library-Website :boom: . Wait for your submission to be accepted and your PR to be merged.
 
 ### This Project is a part of the following Open Source Program
@@ -105,7 +103,6 @@ git push -u origin <your_branch_name>
 <p align="center">
 <a href="https://crosswoc.ieeedtu.in/"><img alt="JPG" src="./assets/images/cwoc.png" width="400"></a>
 </p>
-
 
 ## Project Maintainer 😃
 
@@ -117,6 +114,7 @@ git push -u origin <your_branch_name>
 </tbody></table>
 
 ## Clan of Contributors 😃
+
 Thanks goes to these wonderful people ✨✨:
 
 <table>
@@ -266,6 +264,15 @@ Thanks goes to these wonderful people ✨✨:
          <sub><b>Thiyagesh Kanna</b></sub>
          </a><br />
          <a href="https://github.com/urvashi-code1255/College-Library-Website/commits?author=Thiyageshkanna">
+         💻
+         </a>
+      </td>
+      <td align="center">
+         <a href="https://github.com/Everen-John">
+         <img src="https://avatars.githubusercontent.com/u/72206034?s=400&u=a5923bba041817c89e261744465aef484fe28c22&v=4" width="100px" alt=""/><br />
+         <sub><b>everen-john</b></sub>
+         </a><br />
+         <a href="https://github.com/urvashi-code1255/College-Library-Website/commits?author=everen-john">
          💻
          </a>
       </td>
