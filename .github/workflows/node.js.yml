@@ -44,7 +44,7 @@ jobs:
         # The path to a JSDoc configuration file
         config_file: # optional
         # The JSDoc template to install
-        template: "pixi-jsdoc-template"
+        template: "@pixi/jsdoc-template"
         # This input variable is deprecated in favour of "template"
         template_name: # optional
         # The relative location of the template files within the template package
