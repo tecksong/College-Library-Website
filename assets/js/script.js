@@ -187,7 +187,7 @@ function loadBooks() {
   let uiString;
 
   if (allbooks) {
-    allbooks.map((book, key) => {
+    allbooks.map((book) => {
       countBooks++;
       uiString += `<tr id="${countBooks}">
     <td>${book.name}</td>
