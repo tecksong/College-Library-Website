@@ -38,7 +38,7 @@ jobs:
         # Source directory to build documentation from
         source_dir: "./assets/js"
         # Output folder for the generated documentation
-        output_dir: "./docs"
+        output_dir: "./out"
         # Recurse into subdirectories when scanning for source files
         recurse: # optional
         # The path to a JSDoc configuration file
