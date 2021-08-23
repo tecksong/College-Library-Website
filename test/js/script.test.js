@@ -6,5 +6,5 @@ test("Load books from Local Storage", () => {
 
 test("Add Books to Local Storage", () => {
   let book = { name: "test", author: "test", type: "N/A" };
-  expect(addBooktoLocalStorage(book)).toBe("Expect This to fail");
+  expect(addBooktoLocalStorage(book)).toBe(1);
 });
