@@ -214,7 +214,10 @@ function editfunction(pbookname, pauthorname, ptype, pbookid) {
   document.getElementById(pbookid).style.display = "none";
 }
 
-//Delete function
+/**
+ * Deletes the book based on its book id.
+ * @param {object} pbookid
+ */
 function deletefunction(pbookid) {
   document.getElementById(pbookid).style.display = "none";
 }
