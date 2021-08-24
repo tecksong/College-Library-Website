@@ -89,7 +89,7 @@ jobs:
         
         
         
-    - name: "Configure AWS Credentials"
+    - name: Configure AWS Credentials
       # You may pin to the exact commit or the version.
       # uses: aws-actions/configure-aws-credentials@0d9a5be0dceea74e09396820e1e522ba4a110d2f
       uses: aws-actions/configure-aws-credentials@v1
