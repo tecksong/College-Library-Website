@@ -1,90 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="../assets/css/donate-book.css">
-    <title>Donate Books</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="../assets/css/donate-book.css">
+  <title>Donate Books</title>
 </head>
+
 <body>
-    <!-- pre-loader -->
-    <div id="loading"></div>
+  <!-- pre-loader -->
+  <div id="loading"></div>
 
-    <div class="home"></div>
-    <div class="container">
-        <h2 style="text-align: center; padding: 10px 0 10px 0; color: chocolate;">DONATE BOOKS</h2>
-        <div class="card card-custom">
-            <div class="card-body">
-    <form>
-        <div class="form-row">
+  <div class="home"></div>
+  <div id="container">
+    <h2 style="text-align: center; padding: 10px 0 10px 0; color: chocolate;">DONATE BOOKS</h2>
+    <div class="card card-custom">
+      <div class="card-body">
+        <form id="donateForm">
+          <h3 style="text-align: left; padding: 10px 0; color: rgb(0, 0, 0);">Personal Information</h3>
+          <hr />
+          <div class="form-row">
             <div class="form-group col-md-6">
-              <label for="inputEmail4">First Name</label>
-              <input type="email" class="form-control" id="inputEmail4" placeholder="First Name">
+              <label for="inputFirstName">First Name</label>
+              <input type="text" class="form-control" id="inputFirstName" placeholder="First Name">
             </div>
             <div class="form-group col-md-6">
-              <label for="inputPassword4">Last Name</label>
-              <input type="password" class="form-control" id="inputPassword4" placeholder="Last Name">
+              <label for="inputLastName">Last Name</label>
+              <input type="text" class="form-control" id="inputLastName" placeholder="Last Name">
             </div>
           </div>
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="inputEmail4">Email</label>
-            <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputEmail">Email</label>
+              <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputContact">Contact</label>
+              <input type="number" class="form-control" id="inputContact" placeholder="Contact">
+            </div>
           </div>
-          <div class="form-group col-md-6">
-            <label for="inputPassword4">Contact</label>
-            <input type="number" class="form-control" id="inputPassword4" placeholder="Contact">
+          <div class="form-group">
+            <label for="inputAddress">Address</label>
+            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
           </div>
-        </div>
-        <div class="form-group">
-          <label for="inputAddress">Address</label>
-          <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-        </div>
-        <div class="form-group">
-          <label for="inputAddress2">Address 2</label>
-          <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-        </div>
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="inputCity">City</label>
-            <input type="text" class="form-control" id="inputCity">
+          <div class="form-group">
+            <label for="inputAddress2">Address 2</label>
+            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
           </div>
-          <div class="form-group col-md-4">
-            <label for="inputState">State</label>
-            <select id="inputState" class="form-control">
-              <option selected>Choose...</option>
-              <option>...</option>
-            </select>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputCity">City</label>
+              <input type="text" class="form-control" id="inputCity" placeholder="City">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="inputState">State</label>
+              <select id="inputState" class="form-control">
+                <option selected>Choose...</option>
+                <option>...</option>
+              </select>
+            </div>
+            <div class="form-group col-md-2">
+              <label for="inputZip">Zip</label>
+              <input type="text" class="form-control" id="inputZip" placeholder="Zip Code">
+            </div>
           </div>
-          <div class="form-group col-md-2">
-            <label for="inputZip">Zip</label>
-            <input type="text" class="form-control" id="inputZip">
+
+          <h3 style="text-align: left; padding: 10px 0; color: rgb(0, 0, 0);">Book Information</h3>
+          <hr />
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputTitle">Title</label>
+              <input type="text" class="form-control" id="inputTitle" placeholder="Book Title">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputAuthor">Author</label>
+              <input type="text" class="form-control" id="inputAuthor" placeholder="Author Name">
+            </div>
           </div>
-        </div>
-        <div class="form-group">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck">
-            <label class="form-check-label" for="gridCheck">
-              Agree to terms and conditions
-            </label>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputPublisher">Publisher</label>
+              <input type="text" class="form-control" id="inputPublisher" placeholder="Publisher">
+            </div>
+            <div class="form-group col-md-3">
+              <label for="inputYearPublished">Year Published</label>
+              <input type="number" min="1900" max="2099" step="1" value="2021" class="form-control"
+                id="inputYearPublished" />
+            </div>
+            <div class="form-group col-md-3">
+              <label for="inputCategory">Category</label>
+              <select id="inputCategory" class="form-control">
+                <option selected>Choose...</option>
+                <option>Fantasy</option>
+                <option>Adventure</option>
+                <option>Romance</option>
+                <option>Contemporary</option>
+                <option>Dystopian</option>
+                <option>Mystery</option>
+                <option>Horror</option>
+                <option>Thriller</option>
+                <option>Paranormal</option>
+                <option>Historical Fiction</option>
+                <option>Science Fiction</option>
+                <option>Memoir</option>
+                <option>Cooking</option>
+                <option>Art</option>
+                <option>Self-help / Personal</option>
+                <option>Development</option>
+                <option>Motivational</option>
+                <option>Health</option>
+                <option>History</option>
+                <option>Travel</option>
+                <option>Guide / How-to</option>
+                <option>Families & Relationships</option>
+                <option>Humor</option>
+                <option>Children's</option>
+              </select>
+            </div>
           </div>
-        </div>
-        <button type="submit" class="btn btn-primary">Donate</button>
-      </form>
+          <div class="form-group">
+            <label for="inputDescription">Description</label>
+            <textarea class="form-control" id="inputDescription" rows="4" placeholder="Description"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Donation Method</label>
+            <div class="custom-control custom-radio">
+              <input type="radio" id="dropOff" name="dropOff" class="custom-control-input" value="Self Drop Off">
+              <label class="custom-control-label" for="dropOff">Self Drop Off</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input type="radio" id="pickUp" name="pickUp" class="custom-control-input" value="Pick Up">
+              <label class="custom-control-label" for="pickUp">Pick Up</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="gridCheck">
+              <label class="form-check-label" for="gridCheck">
+                Agree to terms and conditions
+              </label>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Donate</button>
+        </form>
+      </div>
     </div>
-</div>
-</div>
-    <script>
-      window.onload=function(){
-        document.getElementById('loading').style.display="none";
-        document.getElementById('container').style.display="block";
-      }
-    </script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="../assets/js/donate-book-script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+  <script>
+    window.onload = function () {
+      document.getElementById('loading').style.display = "none";
+      document.getElementById('container').style.display = "block";
+    }
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
 </body>
+
 </html>
-
-
