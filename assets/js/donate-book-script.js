@@ -46,6 +46,12 @@ var donatedBooks = [];
 // Add a new book to the donatedBooks array in the localStorage
 var numberOfDonatedBooks = 0;
 
+/**
+ * Add Donated Books to Local Storage
+ * @param {object} donor
+ * @param {object} book
+ * @returns {1} value to show process completed
+ */
 function addDonatedBooksToLocalStorage(donor, book) {
   console.log("Adding book to donatedBooks array in localStorage");
 
