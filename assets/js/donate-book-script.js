@@ -148,8 +148,6 @@ function donateFormSubmit(e) {
     donationMethod
   );
 
-  console.log(book);
-
   if (
     title &&
     author &&
