@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="../assets/css/donate-book.css">
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -29,17 +30,17 @@
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="inputFirstName">First Name</label>
-              <input type="text" class="form-control" id="inputFirstName" placeholder="First Name">
+              <input type="text" class="form-control" id="inputFirstName" placeholder="First Name" required>
             </div>
             <div class="form-group col-md-6">
               <label for="inputLastName">Last Name</label>
-              <input type="text" class="form-control" id="inputLastName" placeholder="Last Name">
+              <input type="text" class="form-control" id="inputLastName" placeholder="Last Name" required>
             </div>
           </div>
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="inputEmail">Email</label>
-              <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+              <input type="email" class="form-control" id="inputEmail" placeholder="Email" required>
             </div>
             <div class="form-group col-md-6">
               <label for="inputContact">Contact</label>
@@ -48,27 +49,28 @@
           </div>
           <div class="form-group">
             <label for="inputAddress">Address</label>
-            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" required>
           </div>
           <div class="form-group">
             <label for="inputAddress2">Address 2</label>
-            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" required>
           </div>
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="inputCity">City</label>
-              <input type="text" class="form-control" id="inputCity" placeholder="City">
+              <select id="inputCity" class="form-control" required>
+                <option selected value="">Select City</option>
+              </select>
             </div>
             <div class="form-group col-md-4">
               <label for="inputState">State</label>
-              <select id="inputState" class="form-control">
-                <option selected>Choose...</option>
-                <option>...</option>
+              <select id="inputState" class="form-control" required>
+                <option selected value="">Select State</option>
               </select>
             </div>
             <div class="form-group col-md-2">
               <label for="inputZip">Zip</label>
-              <input type="text" class="form-control" id="inputZip" placeholder="Zip Code">
+              <input type="text" class="form-control" id="inputZip" placeholder="Zip Code" required>
             </div>
           </div>
 
@@ -166,6 +168,36 @@
     }
 
     $(document).ready(function () {
+
+      var countriesData
+      var statesData
+      var citiesData
+      fetch("../assets/json/countries.json")
+        .then(response => response.json())
+        .then(data => {
+          countriesData = data
+        });
+
+
+      fetch("../assets/json/states.json")
+        .then(response => response.json())
+        .then(data => {
+          statesData = data
+        });
+
+
+      fetch("../assets/json/cities.json")
+        .then(response => response.json())
+        .then(data => {
+          citiesData = data
+        });
+
+
+      var selectCountry = document.getElementById("inputContact"),
+        selectState = document.getElementById("inputState"),
+        countrystatecitySelect = document.getElementById("inputCity");
+
+
       var phoneInputID = "#inputContact";
       var input = document.querySelector(phoneInputID);
       var iti = window.intlTelInput(input, {
@@ -210,7 +242,33 @@
         // Apply the new mask for the input
         $(this).mask(mask);
 
+        selectState.length = 1;
+        countrystatecitySelect.length = 1;
 
+        var code = selectedCountryData.iso2.toUpperCase()
+
+
+        var id
+        for (let i = 0; i < countriesData.length; i++) {
+          if (countriesData[i].sortname == code) {
+            id = countriesData[i].id
+            break
+          }
+        }
+
+        if (id != null) {
+          var statesList = statesData.filter(s => s.country_id == id);
+
+
+          let option;
+
+          for (let i = 0; i < statesList.length; i++) {
+            option = document.createElement('option');
+            option.text = statesList[i].name;
+            option.value = statesList[i].id;
+            selectState.add(option);
+          }
+        }
       });
 
 
@@ -222,6 +280,70 @@
         $(phoneInputID).trigger("countrychange");
       });
 
+
+      selectState.onchange = function () {
+
+        countrystatecitySelect.length = 0; // delete all options bar earliest
+
+        var id = this.value
+        if (id != null) {
+          var citiesList = citiesData.filter(c => c.state_id == id);
+
+          let option;
+          if (citiesList.length == 0) {
+            option = document.createElement('option');
+            option.text = '-';
+            option.value = '-';
+            countrystatecitySelect.add(option);
+          }
+          else {
+            option = document.createElement('option');
+            option.text = 'Select City';
+            option.value = '';
+            countrystatecitySelect.add(option);
+            for (let i = 0; i < citiesList.length; i++) {
+              option = document.createElement('option');
+              option.text = citiesList[i].name;
+              option.value = citiesList[i].id;
+              countrystatecitySelect.add(option);
+            }
+          }
+
+        }
+
+
+      };
+
+      (function () {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms)
+          .forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+              if (!form.checkValidity()) {
+                event.preventDefault()
+                event.stopPropagation()
+              }
+
+              form.classList.add('was-validated')
+
+              $('form .tel-input').each(function () {
+                let telInput = $(this).get(0);
+
+                if ($(this).prop('required') && !telInput.checkValidity()) {
+                  $(this).parents('.form-group').find('.invalid-feedback').show();
+                } else {
+                  $(this).parents('.form-group').find('.invalid-feedback').hide();
+                }
+              });
+
+            }, false)
+          })
+      })();
     });
   </script>
 
@@ -234,7 +356,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.js"></script>
 </body>
 
 </html>
