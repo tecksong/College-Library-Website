@@ -6,6 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="../assets/css/donate-book.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.12/js/intlTelInput.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.12/css/intlTelInput.css" rel="stylesheet" />
+
   <title>Donate Books</title>
 </head>
 
@@ -38,7 +43,7 @@
             </div>
             <div class="form-group col-md-6">
               <label for="inputContact">Contact</label>
-              <input type="number" class="form-control" id="inputContact" placeholder="Contact">
+              <input type="tel" class="form-control tel-input" id="inputContact" name="phone" required />
             </div>
           </div>
           <div class="form-group">
@@ -159,6 +164,65 @@
       document.getElementById('loading').style.display = "none";
       document.getElementById('container').style.display = "block";
     }
+
+    $(document).ready(function () {
+      var phoneInputID = "#inputContact";
+      var input = document.querySelector(phoneInputID);
+      var iti = window.intlTelInput(input, {
+        // allowDropdown: false,
+        // autoHideDialCode: false,
+        // autoPlaceholder: "off",
+        // dropdownContainer: document.body,
+        // excludeCountries: ["us"],
+        formatOnDisplay: true,
+        // geoIpLookup: function(callback) {
+        //   $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
+        //     var countryCode = (resp && resp.country) ? resp.country : "";
+        //     callback(countryCode);
+        //   });
+        // },
+        hiddenInput: "full_number",
+        // initialCountry: "auto",
+        // localizedCountries: { 'de': 'Deutschland' },
+        // nationalMode: false,
+        // onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
+        // placeholderNumberType: "MOBILE",
+        preferredCountries: ['in'],
+        // separateDialCode: true,
+        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.14/js/utils.js"
+      });
+
+
+      $(phoneInputID).on("countrychange", function (event) {
+
+        // Get the selected country data to know which country is selected.
+        var selectedCountryData = iti.getSelectedCountryData();
+
+        // Get an example number for the selected country to use as placeholder.
+        newPlaceholder = intlTelInputUtils.getExampleNumber(selectedCountryData.iso2, true, intlTelInputUtils.numberFormat.INTERNATIONAL),
+
+          // Reset the phone number input.
+          iti.setNumber("");
+
+        // Convert placeholder as exploitable mask by replacing all 1-9 numbers with 0s
+        mask = newPlaceholder.replace(/[1-9]/g, "0");
+
+        // Apply the new mask for the input
+        $(this).mask(mask);
+
+
+      });
+
+
+      // When the plugin loads for the first time, we have to trigger the "countrychange" event manually, 
+      // but after making sure that the plugin is fully loaded by associating handler to the promise of the 
+      // plugin instance.
+
+      iti.promise.then(function () {
+        $(phoneInputID).trigger("countrychange");
+      });
+
+    });
   </script>
 
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -170,6 +234,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.js"></script>
 </body>
 
 </html>
