@@ -163,7 +163,6 @@ function donateFormSubmit(e) {
     clearDonateForm();
     console.log(localStorage.getItem("donatedBooks"));
   } else {
-    // Show error to the user
     console.log(localStorage.getItem("donatedBooks"));
   }
 
