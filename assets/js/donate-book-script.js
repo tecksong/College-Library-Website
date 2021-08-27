@@ -72,9 +72,7 @@ function addDonatedBooksToLocalStorage(donor, book) {
   return 1;
 }
 
-/**
- * Clears the donateForm inputs after successfully adding the data
- */
+// Clears the donateForm inputs after successfully adding the data
 function clearDonateForm() {
   let donateForm = document.getElementById("donateForm");
   donateForm.reset();
@@ -122,7 +120,7 @@ function donateFormSubmit(e) {
 
   console.log(donor);
 
-  // Retrieve information regarding the donated books
+  // // Retrieve information regarding the donated books
   let title = document.getElementById("inputTitle").value;
   let author = document.getElementById("inputAuthor").value;
   let publisher = document.getElementById("inputPublisher").value;
@@ -162,6 +160,7 @@ function donateFormSubmit(e) {
     clearDonateForm();
     console.log(localStorage.getItem("donatedBooks"));
   } else {
+    // Show error to the user
     console.log(localStorage.getItem("donatedBooks"));
   }
 

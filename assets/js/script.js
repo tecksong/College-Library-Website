@@ -128,7 +128,7 @@ Display.prototype.show = function (type, displayMessage) {
  * @param {object} e
  */
 function libraryFormSubmit(e) {
-  console.log("You have submitted library form");
+  console.log("YOu have submitted library form");
   let name = document.getElementById("bookName").value;
   let author = document.getElementById("author").value;
   let type = document.getElementById("type").value;
