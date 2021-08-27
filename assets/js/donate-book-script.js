@@ -87,6 +87,11 @@ if (donateForm != null) {
 
 module.exports = { addDonatedBooksToLocalStorage };
 
+/**
+ * Receives the information entered by the users and performs appropriate form validation to ensure that all the input fields are valid prior to submitting the form.
+ * If no issues are detected from the form validation process, the new book will be added and the current form data will be cleared.
+ * @param {object} e
+ */
 function donateFormSubmit(e) {
   console.log("You have submitted donate form");
 
@@ -141,8 +146,6 @@ function donateFormSubmit(e) {
     description,
     donationMethod
   );
-
-  console.log(book);
 
   if (
     title &&
