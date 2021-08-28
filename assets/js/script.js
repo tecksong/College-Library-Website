@@ -103,7 +103,7 @@ Display.prototype.clear = function () {
   libraryForm.reset();
 };
 
-// Implement the validate function
+// Implement the validation function
 Display.prototype.validate = function (book) {
   if (book.name.length < 2 || book.author.length < 2) {
     return false;
