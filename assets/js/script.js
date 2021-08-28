@@ -49,6 +49,7 @@ TxtType.prototype.tick = function () {
   }, delta);
 };
 
+//Onload Function
 window.onload = function () {
   var elements = document.getElementsByClassName("typewrite");
   for (var i = 0; i < elements.length; i++) {
